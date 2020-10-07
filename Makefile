@@ -1,7 +1,6 @@
 
-
-main: main.o funcs.o caesar.o vigenere.o
-	g++ -o main main.o funcs.o caesar.o vigenere.o
+main: main.o funcs.o caesar.o vigenere.o decrypt.o
+	g++ -o main main.o funcs.o caesar.o vigenere.o decrypt.o
 
 tests: tests.o 
 	g++ -o tests tests.o 
@@ -15,10 +14,12 @@ caesar.o: caesar.cpp caesar.h
 
 vigenere.o: vigenere.cpp vigenere.h
 
+decrypt.o: decrypt.cpp decrypt.h
+
 tests.o: tests.cpp  doctest.h
 
 clean:
-	rm -f main.o tests.o funcs.o caesar.o vigenere.o
+	rm -f main.o tests.o funcs.o caesar.o vigenere.o decrypt.o
 
 help:
 	@echo  make main : make executable named main

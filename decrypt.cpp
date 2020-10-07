@@ -1,11 +1,23 @@
 #include <iostream>
 #include <string>
 
-#include "vigenere.h"
+#include "decrypt.h"
 #include "caesar.h"
 
-//Task C
-std::string encryptVigenere(std::string plaintext, std::string keyword){
+//Task D
+std::string decryptCaesar(std::string ciphertext, int rshift){
+  std::string result;
+  for(int i=0; i<ciphertext.length();i++){
+    if(isalpha(ciphertext[i])){
+      result += shiftChar(ciphertext[i],-(rshift));
+    }
+    else {
+      result += ciphertext[i];
+    }
+  }
+  return result;
+}
+std::string decryptVigenere(std::string ciphertext, std::string keyword){
   std::string result;
   std::string checked;
   for (int i=0; i<keyword.length();i++){  //make sure keyword only contains alpabets
@@ -18,16 +30,16 @@ std::string encryptVigenere(std::string plaintext, std::string keyword){
     num[i] = (int)checked[i]-97;
   }
   int loop = 0;
-  for (int i=0;i<plaintext.length();i++){
+  for (int i=0;i<ciphertext.length();i++){
     if (loop > checked.length()-1){ //loops back the array
       loop = 0;
     }
-    if(isalpha(plaintext[i])){  //shift if it is an alpabet
-      result+= shiftChar(plaintext[i],num[loop]);
+    if(isalpha(ciphertext[i])){  //shift if it is an alpabet
+      result+= shiftChar(ciphertext[i],-num[loop]);
       loop ++;
     }
     else {
-      result += plaintext[i];
+      result += ciphertext[i];
     }
   }
   return result;

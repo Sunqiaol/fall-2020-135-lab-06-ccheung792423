@@ -1,10 +1,10 @@
 * Fall 2020 - Lab 06
 
-* Last name:
+* Last name:Cheung
 
-* First name:
+* First name:Cheuk Lam
 
-* GitHub username:
+* GitHub username:ccheung792423
 
 * Notes:
 
@@ -28,7 +28,7 @@ well as skeleton ~.c~ ~.h~ and ~doctest.h~ files.
   For task A, write the function using the prototype ~void
   test_ascii()~ in ~funcs.cpp~ / ~funcs.h~. It should be called from
   main and *should not* be tested via doctest from ~tests.cpp~.
-
+  
 ** Task B
    
 Add files ~caesar,cpp~ and ~caesar.h~ to your program. In them, write

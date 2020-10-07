@@ -17,6 +17,7 @@ vigenere.o: vigenere.cpp vigenere.h
 decrypt.o: decrypt.cpp decrypt.h
 
 tests.o: tests.cpp  doctest.h
+	g++ -std=c++11 -c tests.cpp
 
 clean:
 	rm -f main.o tests.o funcs.o caesar.o vigenere.o decrypt.o

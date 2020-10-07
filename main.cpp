@@ -7,7 +7,6 @@
 
 int main()
 {
-  test_ascii();
   //Task B
   std::cout << encryptCaesar("A Light-Year Apart",5) <<"\n";
   std::cout << encryptCaesar("A Light-Year Apart",-25) << "\n";

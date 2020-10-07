@@ -26,3 +26,41 @@ TEST_CASE("Task B: Negative shift"){
   CHECK(encryptCaesar("Red Balloon", -5) == "Mzy Wvggjji");
   CHECK(encryptCaesar("Recollection Endroll", -17) == "Anlxuunlcrxw Nwmaxuu");
 }
+TEST_CASE("Task B: Empty String"){
+  CHECK(encryptCaesar("",2) == "");
+}
+
+//Task C
+TEST_CASE("Task C: Regular Cases"){
+  CHECK(encryptVigenere("Gather Round", "luck") == "Ruvrpl Tyfhf");
+  CHECK(encryptVigenere("Gray and Blue", "fixer") == "Lzxc rsl Yplj");
+  CHECK(encryptVigenere("Dream Eater", "alibi") == "Dcmbu Elbfz");
+}
+TEST_CASE("Task C: Keyword is longer than plaintext"){
+  CHECK(encryptVigenere("Venom", "Kairiki") == "Fevfu");
+  CHECK(encryptVigenere("World", "Domination") == "Zcdtq");
+  CHECK(encryptVigenere("Eve", "Dramaturgy") == "Hme");
+}
+TEST_CASE("Task C: Plaintext contains no alpabet"){
+  CHECK(encryptVigenere("!@#$", "please") == "!@#$");
+  CHECK(encryptVigenere("233 333", "laugh") == "233 333");
+  CHECK(encryptVigenere("赤い風船", "Red Balloon") == "赤い風船");
+}
+TEST_CASE("Task C: Empty String"){
+  CHECK(encryptVigenere("","") == "");
+}
+
+//Task D
+TEST_CASE("Task D: Caesar"){
+  CHECK(decryptCaesar("Uxqzdb'v Idqwdvlvwd",3) == "Runway's Fantasista");
+  CHECK(decryptCaesar("123 456 789 10",6) == "123 456 789 10");
+  CHECK(decryptCaesar("Z Khfgs-Xdzq Zozqs",25) == "A Light-Year Apart");
+  CHECK(decryptCaesar("Lixivswxewmw",-100) == "Heterostasis");
+  CHECK(decryptCaesar("",2) == "");
+}
+TEST_CASE("Task D: Vigenere"){
+  CHECK(decryptVigenere("Ruvrpl Tyfhf", "luck") == "Gather Round");
+  CHECK(decryptVigenere("Fevfu", "Kairiki") == "Venom");
+  CHECK(decryptVigenere("!@#$", "please") == "!@#$");
+  CHECK(decryptVigenere("","") == "");
+}

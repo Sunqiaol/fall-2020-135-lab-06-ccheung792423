@@ -22,7 +22,7 @@ std::string decryptVigenere(std::string ciphertext, std::string keyword){
   std::string checked;
   for (int i=0; i<keyword.length();i++){  //make sure keyword only contains alpabets
     if(isalpha(std::tolower(keyword[i]))){
-      checked += keyword[i];
+      checked += std::tolower(keyword[i]); //make sure everything is in lower case
     }
   }
   int num [checked.length()];
@@ -31,14 +31,14 @@ std::string decryptVigenere(std::string ciphertext, std::string keyword){
   }
   int loop = 0;
   for (int i=0;i<ciphertext.length();i++){
-    if (loop > checked.length()-1){ //loops back the array
+    if (loop > checked.length()-1){ //loops back the keyword when it reaches the last character
       loop = 0;
     }
     if(isalpha(ciphertext[i])){  //shift if it is an alpabet
       result+= shiftChar(ciphertext[i],-num[loop]);
       loop ++;
     }
-    else {
+    else { //else don't change that character
       result += ciphertext[i];
     }
   }

@@ -4,6 +4,7 @@
 #include "caesar.h"
 #include "vigenere.h"
 #include "decrypt.h"
+#include "decode.h"
 
 int main()
 {
@@ -36,6 +37,9 @@ int main()
   std::cout << "Decrypted is:\n";
   std::cout << decryptVigenere(encryptVigenere(str4,"moon"),"moon") << "\n";
   std::cout << "-----------------------------------\n";
+
+  std::cout << "Decoded Caesar ciper with letter frequency:\n";
+  std::cout << decode(encryptCaesar(str3,10)) << std::endl;
 
   return 0;
 }

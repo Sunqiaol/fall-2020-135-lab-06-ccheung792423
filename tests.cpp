@@ -4,6 +4,7 @@
 #include "caesar.h"
 #include "vigenere.h"
 #include "decrypt.h"
+#include "decode.h"
 
 //Task B
 TEST_CASE ("Task B: Regular Cases"){
@@ -63,4 +64,12 @@ TEST_CASE("Task D: Vigenere"){
   CHECK(decryptVigenere("Fevfu", "Kairiki") == "Venom");
   CHECK(decryptVigenere("!@#$", "please") == "!@#$");
   CHECK(decryptVigenere("","") == "");
+}
+
+//Decode.cpp
+//cited from Liberty- The American Revolution part 1
+TEST_CASE("Decode with letter frequency"){
+  CHECK(decode(encryptCaesar("Hello I'm Forrest Sawyer. Welcome to our series Liberty",12)) == "Hello I'm Forrest Sawyer. Welcome to our series Liberty");
+  CHECK(decode(encryptCaesar("We live in a time of fast breaking news,",43)) == "We live in a time of fast breaking news,");
+  CHECK(decode(encryptCaesar("which seems very far from the 18th century world the subject of this series.", 21)) == "which seems very far from the 18th century world the subject of this series.");
 }

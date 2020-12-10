@@ -5,8 +5,12 @@
 #include "vigenere.h"
 #include "decrypt.h"
 #include "decode.h"
-
+//try to some case for empty string 
 //Task B
+TEST_CASE("Test for empty string"){
+  CHECK(findfreq("123123",'w')==0);
+  CHECK(encryptCaesar(" ",3)==" ");
+}
 TEST_CASE ("Task B: Regular Cases"){
   CHECK(encryptCaesar("Runway's Fantasista",3) == "Uxqzdb'v Idqwdvlvwd");
   CHECK(encryptCaesar("rasion d'etre", 4) == "vewmsr h'ixvi");
